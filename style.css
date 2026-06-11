@@ -1,0 +1,214 @@
+/* --- System Variables --- */
+:root {
+    --bg-deep: #0a0a0f;
+    --bg-card: #12121a;
+    --neon-cyan: #00f3ff;
+    --neon-magenta: #ff0055;
+    --text-primary: #e2e8f0;
+    --text-muted: #94a3b8;
+    --font-cyber: 'Orbitron', sans-serif;
+    --font-sub: 'Rajdhani', sans-serif;
+}
+
+/* --- Global Reset & Base Layout --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-sub);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Sci-fi Subtle Grid Background Background */
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+}
+
+/* --- Navigation --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 6%;
+    border-bottom: 1px solid rgba(0, 243, 255, 0.15);
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    font-family: var(--font-cyber);
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin: 0 20px;
+    font-family: var(--font-cyber);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 10% 60px 10%;
+    min-height: 70vh;
+}
+
+.hero-title {
+    font-family: var(--font-cyber);
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    max-width: 650px;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* --- Buttons & UI Elements --- */
+button {
+    font-family: var(--font-cyber);
+    font-weight: 700;
+    padding: 12px 28px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    clip-path: polygon(12px 0px, 100% 0px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0px 100%, 0px 12px); /* Tech cut corners */
+}
+
+.btn-primary {
+    background: var(--neon-cyan);
+    color: var(--bg-deep);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    margin-right: 15px;
+}
+
+.btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 25px var(--neon-cyan);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--neon-magenta);
+    border: 1px solid var(--neon-magenta);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 0, 85, 0.1);
+    box-shadow: 0 0 15px var(--neon-magenta);
+}
+
+.btn-nav {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+}
+
+/* --- Features Grid Section --- */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 8%;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    padding: 30px;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--neon-cyan);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+/* Corner accent indicators for the tech cards */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 15px;
+    height: 15px;
+    border-top: 2px solid var(--neon-magenta);
+    border-left: 2px solid var(--neon-magenta);
+}
+
+.card-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: var(--font-cyber);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.card {
+    background: radial-gradient(
+        800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), 
+        rgba(0, 243, 255, 0.15), 
+        var(--bg-card) 40%
+    );
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    padding: 30px;
+    border-radius: 4px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
